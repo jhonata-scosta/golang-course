@@ -14,3 +14,23 @@ func Escrever() {
 }
 ```
 Como no exemplo acima a função “Escrever” está escrita com a primeira letra maiúscula, desse jeito, a função fica visível para que estiver importando o pacote conseguir utiliza-la. Porém se a função fosse escrita com a primeira letra minúscula, essa função seria visível apenas dentro do escopo do pacote. O Go não é uma linguagem com orientação ao objeto como Java, que possível “Public” e “Private”.
+
+## Pacotes externos
+
+Para utilizar pacotes externos (terceiros) utilizamos o comando `go get <url-do-pacote>`, ele irá adicionar o pacote no arquivo `go.mod` onde irá ficar informado o nome, link e versão instalado e se for o primeiro pacote externo instalado irá gerar um novo arquivo, o `go.sum`, que armazena as informações dos pacotes instalados e checksums para garantir que o código do arquivo não foi alterado maliciosamente. **Nunca edite esse arquivo.**
+
+Para utilizar o pacote externo, informe a url no campo de import. É possível chama-lo com apenas o ultimo nome que aperece na url, como o exemplo do checkmail: 
+Para adicionar no pacote, já com o modulo criado:
+```bash
+go get github.com/badoux/checkmail
+```
+E para adiciona-lo no projeto:
+```go
+package main
+import (
+	“fmt”
+	“modulo/auxiliar”
+	“github.com/badoux/checkmail
+)
+```
+
