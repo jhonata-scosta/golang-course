@@ -33,4 +33,8 @@ import (
 	“github.com/badoux/checkmail
 )
 ```
+Para remover pacotes do projeto que não estão sendo mais utilizados utilizamos o comando:
 
+```bash
+go mod tidy
+```
